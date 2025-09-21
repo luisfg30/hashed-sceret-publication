@@ -6,7 +6,7 @@ if [ $# -eq 0 ]; then
 fi
 
 SECRET="$1"
-EXPECTED_HASH="${2:-532eaabd9574880dbf76b9b8cc00832c20a6ec113d682299550d7a6e0f345e25}"
+EXPECTED_HASH="${2:-e2d416889d1016b5d995ad3e584e2c5e0328df3a6caad7ffa5aa306c7ca3f2ad}"
 
 HASHED_SECRET=$(echo -n "$SECRET" | sha256sum | cut -d ' ' -f1)
 
