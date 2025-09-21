@@ -1,0 +1,25 @@
+name: Verify hash
+
+on:
+  workflow_dispatch:
+    inputs:
+      secret_word:
+        description: 'Secret word to check'
+        required: true
+        type: string
+
+jobs:
+  check-hash:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Make script executable
+        run: chmod +x ./test_hash.sh
+
+      - name: Run hash check
+        run: ./test_hash "$SECRET"
+        env:
+          SECRET: ${{ github.event.inputs.secret_word }}   
